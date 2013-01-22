@@ -1,0 +1,13 @@
+{
+  "parts": [
+    {
+      "name": "ep_post_message",
+      "hooks": {
+         "eejsBlock_scripts": "ep_post_message/index"
+      },
+      "client_hooks": {
+        "aceInitialized": "ep_post_message/static/js/index:aceInitialized"
+      }
+    }
+  ]
+}

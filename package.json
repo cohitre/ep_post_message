@@ -1,0 +1,9 @@
+{
+  "name": "ep_post_message",
+  "description": "A post message listener for use etherpad",
+  "version": "0.0.1",
+  "author": "cohitre <smiles@cohitre.com>",
+  "contributors": [],
+  "dependencies": {},
+  "engines": { "node": ">= 0.4.1 < 0.7.0" }
+}
