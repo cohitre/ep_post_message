@@ -1,13 +1,13 @@
 var settings = require('ep_etherpad-lite/node/utils/Settings')
-  , accessibleDomains = [];
+  , pluginSettings;
 
-if(settings.ep_postMessageDomains) { // Setup testing else poop out
-  accessibleDomains = settings.ep_postMessageDomains;
+if(settings.ep_post_message) {
+  pluginSettings = settings.ep_post_message;
 }
 
 exports.eejsBlock_scripts = function (hook_name, args, cb) {
   var scriptString = "<script type='text/javascript'>" +
-    "  var ep_postMessageDomains = " + JSON.stringify(accessibleDomains) + ";" +
+    "  window.ep_post_message = " + JSON.stringify(pluginSettings) + ";" +
     "</script>";
 
   args.content = args.content + scriptString;

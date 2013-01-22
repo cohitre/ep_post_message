@@ -16,14 +16,16 @@ availableMethods = {
 };
 
 exports.aceInitialized = function (event, args, callback) {
-  var availableDomains = window.ep_postMessageDomains || [];
+  var pluginSettings = window.ep_post_message || {
+    domains: []
+  };
 
   window.addEventListener("message", function (e) {
     var object = JSON.parse(e.data)
       , origin = e.origin
       , source = e.source;
 
-    if (_.include(availableDomains, origin)) {
+    if (_.include(pluginSettings.domains, origin)) {
       postback(source, origin, object);
     }
   }, false);
