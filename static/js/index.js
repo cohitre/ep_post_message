@@ -12,6 +12,14 @@ var editor = require("ep_etherpad-lite/static/js/pad_editor").padeditor
 availableMethods = {
   getText: function () {
     return [editor.ace.exportText()];
+  },
+  getDocHeight: function () {
+    return  $('iframe[name="ace_outer"]')
+            .contents()
+            .find('iframe')
+            .contents()
+            .find("#innerdocbody")
+            .height();
   }
 };
 
